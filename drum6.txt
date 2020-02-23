@@ -1,0 +1,45 @@
+First Act pinout
+
+Numbers in first column are pins on added header
+
+ 1 REST  ON pulls this pin to ground
+   P10   TEMPO
+   P11   RHY-VOL
+   P12   DRUM-VOL
+ 2 P13   RHY1-3SEL right side of switch
+   VDD   
+   P20   RHY1-3SEL left side of switch
+ 3 P21   OFF
+ 4 P23   DEMO/PLAY   0V play, 4.2V demo
+ 5 P30   R7 pad
+ 6 P31   R10 pad
+ 7 P32   R11 pad
+ 8 P33   R14 pad
+ 9 P40   R13 pad
+10 P41   R12 pad
+11 P42   N/C has 4.2V when system on, 0V when off
+12 P43   ? has 0.27V when system on, 4.2V when off
+   VDD   4.2V
+13 V01A  Audio out
+   VSS   0V
+
+14 	 Speed resistor
+15	 Speed resistor
+
+Gate (~4.5V) on pins P10-13, P21, P30-33, P40-41 triggers action.
+DEMO/PLAY switch affects system timeout: 15 sec for DEMO, 3 min for PLAY.
+
+56k THT resistor on processor board governs speed/pitch. Cut this and
+play with resistance across header pins 14-15.
+
+Pin 14 appears to be connected to VCC.
+
+Best? idea so far for timeout workaround:
+
+Differentiate P42 to produce a negative going pulse when system shuts
+off. Pulse triggers a 555 one shot. One shot turns on a transistor
+connecting REST to ground. One shot time must be long enough to
+initiate reset, not so long as to leave the system off too long.
+
+Or if producing the negative pulse isn't working, use P43 to turn on a
+transistor connecting a 555 astable to the REST-ground transistor.

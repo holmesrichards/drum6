@@ -9,7 +9,7 @@ Numbers in first column are pins on added header
  2 P13   RHY1-3SEL right side of switch
    VDD   
    P20   RHY1-3SEL left side of switch
- 3 P21   OFF
+   P21   OFF
  4 P23   DEMO/PLAY   0V play, 4.2V demo
  5 P30   R7 pad
  6 P31   R10 pad
@@ -17,14 +17,14 @@ Numbers in first column are pins on added header
  8 P33   R14 pad
  9 P40   R13 pad
 10 P41   R12 pad
-11 P42   N/C has 4.2V when system on, 0V when off
+   P42   N/C has 4.2V when system on, 0V when off
 12 P43   ? has 0.27V when system on, 4.2V when off
    VDD   4.2V
 13 V01A  Audio out
    VSS   0V
 
-14 	 Speed resistor
-15	 Speed resistor
+14 	 VCC (on end of speed resistor)
+15	 Speed control pin (on other end of speed resistor)
 
 Gate (~4.5V) on pins P10-13, P21, P30-33, P40-41 triggers action.
 DEMO/PLAY switch affects system timeout: 15 sec for DEMO, 3 min for PLAY.
@@ -32,6 +32,10 @@ DEMO/PLAY switch affects system timeout: 15 sec for DEMO, 3 min for PLAY.
 56k THT resistor on processor board governs speed/pitch. Appears to be
 input for an internal current-controlled oscillator. Change resistance or
 voltage (it was connected to VCC) and speed/pitch changes.
+
+Current (hence speed) can go down to zero with no ill effects, up to
+about 5V with 27k resistor. So we can take 0–5V control voltages
+(enforce that range after provided attenuator).
 
 Best? idea so far for timeout workaround:
 

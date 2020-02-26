@@ -10,5 +10,3 @@ The obnoxious canned rhythms will not be made available.
 This will be the sort of drum module no one wants, but it'll be fun making it.
 
 Meanwhile the externals, including the pads themselves and the associated switches, are usable and might become a trigger/gate generating controller.
-
-Drum6 by Richard Holmes is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.

@@ -1,0 +1,9 @@
+1. Resolder DEMO/PLAY done
+2. ? Fix drum 2/3 bridge (not essential for now), not done
+3. Build and test output amplifier, need bigger brain
+4. Rebuild wakeup, add CV and trigger input, do full test
+5. Figure out new connector and attach it. Maybe a right angle female
+glued to board with ribbon cable wires connecting to daughterboard.
+6. Finalize schematic
+7. Finish PCB layout
+8. Fab and build
